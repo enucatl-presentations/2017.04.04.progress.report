@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Progress report</title>
+<meta charset='utf-8'>
+<meta content='7th progress report' name='description'>
+<meta content='Matteo Abis' name='author'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="stylesheets/all.css" rel="stylesheet" />
+<link href="vendor/eth-reveal-theme/eth.css" rel="stylesheet" id="theme" />
+<script src="vendor/reveal/lib/js/head.min.js"></script>
+<script src="javascripts/reveal_print_pdf.js"></script>
+<!--[if lt IE 9]>
+<script src="vendor/reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body class='index'>
+<div class='reveal'>
+<img align='left' alt='ETH Logo' src='vendor/eth-reveal-theme/images/eth-logo.jpg' width='15%'>
+<img align='right' alt='PSI Logo' src='vendor/eth-reveal-theme/images/psi-logo.jpg' width='15%'>
+<div class='slides'>
+<section data-background-position='bottom' data-background-size='100%' data-background='vendor/eth-reveal-theme/images/ETHbackground.png'>
+<h2>High-energy sources towards 2D applications</h2>
+</section>
+<section>
+<h2>goals and motivation</h2>
+<ul>
+<li>feasibility of phase contrast on tubes with \(>100\) kVp</li>
+<li>typical environment for medical, security and material science applications</li>
+</ul>
+</section>
+<section>
+<h2>outline</h2>
+<ul>
+<li>technical studies</li>
+<ul>
+<li>evaluation of KIT gratings</li>
+</ul>
+<li>applications</li>
+<ul>
+<li class='alert alert-danger'>biomedical: lungs</li>
+<li class='alert alert-success'>material science: cement</li>
+</ul>
+</ul>
+</section>
+<section>
+<section>
+<h2>new batch of KIT gratings</h2>
+<p>delivered in January</p>
+</section>
+<section>
+<h2>phase-shift gratings</h2>
+<p>thickness variation above 10%</p>
+<div class='col-md-12'>
+<div class='col-md-6'>
+<img src="images/10936.png" class="img.img-responsive" alt="10936" />
+</div>
+<div class='col-md-6'>
+<img src="images/12576.png" class="img.img-responsive" alt="12576" />
+</div>
+</div>
+<div class='col-md-12'>
+<p class='small'>
+courtesy of P. Meyer from KIT,
+<a href='https://www.bruker.com/fileadmin/user_upload/8-PDF-Docs/SurfaceAnalysis/3D-OpticalMicroscopy/Webinars/2012-12-11-3D-Oberflaechenmesstechnik-fuer-die-Produktion-Seminar.pdf'>see methods</a>
+</p>
+</div>
+</section>
+<section>
+<h2>absorption gratings</h2>
+<p>tried to increase absorption thickness above 100-120 μm</p>
+<p>
+see
+<a href='https://enucatl-presentations.github.io/angel-grating-report/'>my report</a>
+</p>
+<p>macroscopic defects in the gold structure</p>
+</section>
+<section>
+<h2>final setup</h2>
+<ul>
+<li>G0 from the previous shipping</li>
+<li>G1 most compatible with spec, according to KIT report</li>
+<li>G2 most uniform according to our measurement</li>
+</ul>
+<p>
+~10% visibility
+</p>
+<p>45 keV design, 100 kVp, 6 mA</p>
+</section>
+</section>
+<section>
+<section>
+<h2>applications</h2>
+</section>
+<section>
+<h2>water diffusion in cement</h2>
+<p>inspired by Fei Yang's "Dark-field X-ray imaging of unsaturated water transport in porous materials"</p>
+</section>
+<section>
+<h2>the relevant signals</h2>
+<ul>
+<li>transmission \(A\)</li>
+<li>dark field \(B\)</li>
+<li>log ratio \(R = \log(A) / \log(B)\)</li>
+</ul>
+</section>
+<section>
+<h2>theoretical introduction</h2>
+<ul>
+<li>
+Lynch et al.
+\[
+B \propto \mu_d = \frac{3\pi}{\lambda^2}f |\Delta n|^2 d
+\begin{cases}
+D' & \text{if } D' \leqslant 1\\[2ex]
+\!\begin{align}
+D' - \sqrt{D'^2 - 1}\\
+(1 + D'^{-2}/2) \\
++ (D'^{-1} + D'^{-3} / 4) \\
+\log\left(\frac{D' + \sqrt{D'^2 - 1}}{D' - \sqrt{D'^2 - 1}}\right)
+\end{align} & \text{otherwise}
+\end{cases}
+\]
+</li>
+<li>dark field as a function of sphere diameter and photon energy</li>
+</ul>
+</section>
+<section>
+<h2>sum over the spectrum</h2>
+<p>
+\[
+R(\energy) = \frac{\log B}{\log A} = \frac{\mu_d}{2k\beta}
+\]
+</p>
+<p>
+\[
+R = C\frac{\sum_\energy w(\energy)|\Delta n(\energy)|^2 \energy u(\energy)}{\sum_\energy w(\energy) \energy \beta}
+\]
+</p>
+</section>
+<section>
+<h2>expect large increase in contrast</h2>
+<p>
+\[
+R = C\frac{\sum_\energy w(\energy)|\Delta n(\energy)|^2 \energy u(\energy)}{\sum_\energy w(\energy) \energy \beta}
+\]
+</p>
+<ul>
+<li>\(u\) depends on the diameter of the pores</li>
+<li>\(\Delta n\) includes \(\delta\)</li>
+</ul>
+</section>
+<section>
+<h2>protocol</h2>
+<ul>
+<li>dry cement cylinder at 120 °C for one hour</li>
+<li>isolate sides with water-proof tape</li>
+<li>put the base in contact with water</li>
+<li>repeated radiographs with 20 phase steps x 0.2 s for about two hours</li>
+</ul>
+</section>
+<section>
+<h2>results: absorption</h2>
+<div class='col-md-12'>
+<iframe width="500" height="400" src="https://www.youtube.com/embed/w8ND8DcHGnk?ecver=1" frameborder="0" allowfullscreen></iframe>
+</div>
+</section>
+<section>
+<h2>results: ratio \(R\)</h2>
+<div class='col-md-12'>
+<iframe width="500" height="400" src="https://www.youtube.com/embed/yEladJvuttE?ecver=1" frameborder="0" allowfullscreen></iframe>
+</div>
+</section>
+<section>
+<h2>first shot</h2>
+<img style="width: 33vw" src="https://github.com/Enucatl/wet-cement/raw/master/data/0.png" />
+</section>
+<section>
+<h2>after one hour</h2>
+<img style="width: 33vw" src="https://github.com/Enucatl/wet-cement/raw/master/data/200.png" />
+</section>
+<section>
+<h2>contrast-to-noise ratio</h2>
+<img style="width: 33vw" src="https://github.com/Enucatl/wet-cement/raw/master/data/cnr.absorption.png" />
+</section>
+<section>
+<h2>contrast-to-noise ratio</h2>
+<img style="width: 33vw" src="https://github.com/Enucatl/wet-cement/raw/master/data/cnr.ratio.png" />
+</section>
+<section>
+<h2>quantitative diffusion</h2>
+<p>thresholding \(\rightarrow\) fraction of wet pixels</p>
+<img style="width: 33vw" src="https://github.com/Enucatl/wet-cement/raw/master/data/position.png" />
+</section>
+</section>
+<section>
+<section>
+<h2>conclusions and outline</h2>
+<ul>
+<li>critical issues to be considered by in-house fabrication team</li>
+<li>lung experiment would be repeated if we get any emphysematic samples</li>
+<li>
+expand the cement measurements
+<ul>
+<li>a complete theoretical treatment is possible by including a beamline micro-CT for the pore-size distribution</li>
+<li>Fei's input particularly valuable now that she joins the team</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="javascripts/all.js"></script>
+</body>
+</html>
